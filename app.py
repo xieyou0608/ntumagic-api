@@ -11,8 +11,9 @@ def index():
 @app.route('/seat', methods=['POST'])
 def post_seat():
     inputs = request.get_json()
-
-    print(inputs['seat_row'])
+    row = inputs['seat_row']
+    num = inputs['seat_num']
+    print(f'row: {row}\nseat: {num}')
 
     return jsonify({'return': 'ok!'})
 
