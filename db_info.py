@@ -1,7 +1,14 @@
 from flask import Flask
 from flask_pymongo import pymongo
 from app import app
-from setting import DATABASES
+import os
+
+DATABASES = {
+      'default': {
+        'CONNECTION_STRING': os.getenv('CONNECTION_STRING'),
+        'DB_NAME': os.getenv('DB_NAME'),
+    }
+}
 
 CONNECTION_STRING = DATABASES['default']['CONNECTION_STRING']
 myclient = pymongo.MongoClient(CONNECTION_STRING)
