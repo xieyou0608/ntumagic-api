@@ -11,6 +11,7 @@ DATABASES = {
 }
 
 CONNECTION_STRING = DATABASES['default']['CONNECTION_STRING']
+print(CONNECTION_STRING)
 myclient = pymongo.MongoClient(CONNECTION_STRING)
-mydb = myclient.get_database(DATABASES['default']["NAME"])
+mydb = myclient.get_database(DATABASES['default']["DB_NAME"])
 user_collection = pymongo.collection.Collection(mydb, 'user_collection')
